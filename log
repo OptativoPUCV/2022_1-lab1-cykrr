@@ -34,3 +34,38 @@ exercises.c:20:5: error: 'sumaN' defined but not used [-Werror=unused-function]
 cc1: all warnings being treated as errors
 Compilation failed
 08cd5d9
+Thu Mar 10 10:07:06 -03 2022: 
+test.c: In function 'suma':
+test.c:250:5: error: 'main' is normally a non-static function [-Werror=main]
+  250 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:272:1: error: expected declaration or statement at end of input
+  272 | }
+      | ^
+test.c: In function 'test_suma_n':
+test.c:90:5: error: 'sprintf' argument 3 overlaps destination object 'CHAIN.45' [-Werror=restrict]
+   90 |     sprintf(msg,"%s]",msg);
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+test.c:78:5: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+   78 | int test_suma_n(){
+      |     ^~~~~~~~~~~
+test.c:88:9: error: 'sprintf' argument 3 overlaps destination object 'CHAIN.45' [-Werror=restrict]
+   88 |         sprintf(msg,"%s %d,",msg,a[i]);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test.c:78:5: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+   78 | int test_suma_n(){
+      |     ^~~~~~~~~~~
+At top level:
+test.c:250:5: error: 'main' defined but not used [-Werror=unused-function]
+  250 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:8:8: error: '_strdup' defined but not used [-Werror=unused-function]
+    8 | char * _strdup(const char * str) {
+      |        ^~~~~~~
+In file included from test.c:5:
+exercises.c:20:5: error: 'sumaN' defined but not used [-Werror=unused-function]
+   20 | int sumaN(int a[], int N) {
+      |     ^~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+74425a3
