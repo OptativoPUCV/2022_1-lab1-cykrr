@@ -8,9 +8,9 @@
 #define false 0
 #define true 1 
 
-void assert(void* p) {
-	if (p != NULL){
-		printf("nullptr\n");
+void assert(int expr) {
+	if (expr == false){
+		printf("assertion failed\n");
 		exit(1);
 	}
 }
@@ -66,7 +66,7 @@ typedef struct {
 
 Persona* crearPersona(char nombre[], char rut[], int edad) {
 	void *tmp = malloc(sizeof(Persona));
-	assert(tmp);
+	assert(tmp != NULL);
 	Persona* ret = (Persona*) tmp;
 
 	strcpy(ret->nombre, nombre);
