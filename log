@@ -69,3 +69,30 @@ exercises.c:20:5: error: 'sumaN' defined but not used [-Werror=unused-function]
 cc1: all warnings being treated as errors
 Compilation failed
 74425a3
+Thu Mar 10 10:47:58 -03 2022: 
+ exercises.c | 29 ++++++++++++++++-------------
+ 1 file changed, 16 insertions(+), 13 deletions(-)
+test.c: In function 'test_suma_n':
+test.c:90:21: error: 'sprintf' may write a terminating nul past the end of the destination [-Werror=format-overflow=]
+   90 |     sprintf(msg,"%s]",msg);
+      |                     ^
+test.c:90:5: note: 'sprintf' output between 2 and 301 bytes into a destination of size 300
+   90 |     sprintf(msg,"%s]",msg);
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+test.c:90:5: error: 'sprintf' argument 3 overlaps destination object 'msg' [-Werror=restrict]
+test.c:14:6: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+   14 | char msg[300];
+      |      ^~~
+test.c:88:25: error: '%d' directive writing between 1 and 11 bytes into a region of size between 0 and 299 [-Werror=format-overflow=]
+   88 |         sprintf(msg,"%s %d,",msg,a[i]);
+      |                         ^~
+test.c:88:9: note: 'sprintf' output between 4 and 313 bytes into a destination of size 300
+   88 |         sprintf(msg,"%s %d,",msg,a[i]);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test.c:88:9: error: 'sprintf' argument 3 overlaps destination object 'msg' [-Werror=restrict]
+test.c:14:6: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+   14 | char msg[300];
+      |      ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+de5834c
