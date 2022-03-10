@@ -5,6 +5,13 @@
 #include <ctype.h>
 //#include "exercises.h"
 
+void assert(void* p) {
+	if (p != NULL){
+		printf("nullptr\n");
+		exit(1);
+	}
+}
+
 /* 
 Ejercicio 1.
 Función que recibe 3 parámetros (a, b y c), 
