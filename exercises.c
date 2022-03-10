@@ -4,6 +4,9 @@
 #include <math.h>
 #include <ctype.h>
 //#include "exercises.h"
+//
+#define false 0
+#define true 1 
 
 void assert(void* p) {
 	if (p != NULL){
